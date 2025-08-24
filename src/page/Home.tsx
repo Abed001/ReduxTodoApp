@@ -1,7 +1,14 @@
 import ToggleDarkMode from "../component/ToggleDarkMode";
 
+import UpperSection from "../component/UpperSection";
+
 function Home() {
-  return <ToggleDarkMode />;
+  return (
+    <div>
+      <UpperSection />
+      <ToggleDarkMode />
+    </div>
+  );
 }
 
 export default Home;

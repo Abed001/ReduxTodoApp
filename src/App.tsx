@@ -1,10 +1,10 @@
 import { ThemeProvider } from "./context/ThemeProvider";
-import ToggleDarkMode from "./component/ToggleDarkMode";
+import Home from "./page/Home";
 
 export default function App() {
   return (
     <ThemeProvider>
-      <ToggleDarkMode />
+      <Home />
       {/* other components */}
     </ThemeProvider>
   );

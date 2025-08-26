@@ -3,5 +3,16 @@
 @layer theme {
   @theme {
     --color-darkelements: #25273c;
+    --color-darkbackground: #181824;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

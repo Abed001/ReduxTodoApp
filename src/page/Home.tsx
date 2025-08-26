@@ -7,7 +7,7 @@ function Home() {
   return (
     <div className={`flex flex-col  h-[100vh] w-full`}>
       <section className={`px-10 pb-20 `}>
-        <div className="flex flex-col">
+        <div className="flex flex-col ">
           <div className="flex justify-between mx-5 lg:mx-0 lg:justify-center items-center gap-x-40 ">
             <UpperSection />
             <ToggleDarkMode />
@@ -29,7 +29,7 @@ function Home() {
       {/*the bottom section*/}
 
       <section
-        className={`${
+        className={`customtransition ${
           dark ? "bg-darkbackground" : "bg-white"
         }   mt-10 relative h-[100vh] w-100% `}
       >

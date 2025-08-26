@@ -1,3 +1,8 @@
+.customtransition {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    background-image 0.3s ease;
+}
+
 .upper-section {
   height: 30%; /* or whatever height you want */
   background-size: cover;
@@ -14,7 +19,7 @@ body.light {
   background-color: #ffffff;
   color: #222222;
   background-image: url("../assets/bg-desktop-light.jpg");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 
@@ -25,7 +30,7 @@ body.dark {
   background-color: #181824;
   color: #f5f5f5;
   background-image: url("../assets/bg-desktop-dark.jpg");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 

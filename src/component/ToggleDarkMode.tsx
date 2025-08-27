@@ -8,7 +8,7 @@ const ToggleDarkMode = () => {
   return (
     <div className={dark ? "dark" : "light"}>
       <h1
-        className=" mt-20 text-4xl"
+        className=" mt-5 text-4xl"
         onClick={toggleDark}
       >
         {dark ? (

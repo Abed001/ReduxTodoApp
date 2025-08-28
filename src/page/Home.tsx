@@ -1,8 +1,11 @@
+// use the useAppSelector instead for typescript
+// import { useSelector } from "react-redux";
 import ToggleDarkMode from "../component/ToggleDarkMode";
 import UpperSection from "../component/UpperSection";
 import { useTheme } from "../context/useTheme";
-
+import { useAppSelector } from "./hooks"; // adjust path if needed
 function Home() {
+  const task = useAppSelector((state) => state.todo.task);
   const { dark } = useTheme();
   return (
     <div className={`flex flex-col h-[100vh] w-full`}>
@@ -14,7 +17,7 @@ function Home() {
           </div>
           <div className="flex justify-center">
             <input
-              className={`mt-10 min-w-[400px] lg:min-w-[400px] p-2 rounded-md ${
+              className={`mt-10 min-w-[400px] lg:min-w-[400px] p-2 py-4 rounded-md ${
                 dark
                   ? "dark:text-white bg-darkelements placeholder-gray-500"
                   : "bg-white text-black "
@@ -29,13 +32,13 @@ function Home() {
       {/*the bottom section*/}
 
       <section
-        className={`customtransition ${
+        className={`font-semibold customtransition ${
           dark ? "bg-darkbackground" : "bg-lightbackground"
         }    relative h-[100vh] w-[100%] `}
       >
         <div
           className={`mt-10 ${
-            dark ? "bg-darkbackground" : "bg-white"
+            dark ? "bg-darkelements" : "bg-white"
           }  min-w-[400px] lg:min-w-[400px] absolute top-[-20%] left-[50%] translate-x-[-50%] h-64 overflow-y-auto no-scrollbar rounded-md  shadow-lg`}
         >
           <ul
@@ -46,10 +49,25 @@ function Home() {
             } divide-y `}
           >
             {" "}
-            <li className="py-2 lg:py-3 pl-12 bg-gray-100 dark:bg-gray-700 ">
+            <li
+              className={`${
+                dark ? "bg-darkelements" : "bg-white"
+              } py-2 lg:py-3 pl-12 `}
+            >
+              {task}
+            </li>
+            <li
+              className={`${
+                dark ? "bg-darkelements" : "bg-white"
+              } py-2 lg:py-3 pl-12 `}
+            >
               Jog around the park 3x
             </li>
-            <li className="py-2 lg:py-3 pl-12 bg-gray-100 dark:bg-gray-700 ">
+            <li
+              className={`${
+                dark ? "bg-darkelements" : "bg-white"
+              } py-2 lg:py-3 pl-12 `}
+            >
               Jog around the park 3x
             </li>
           </ul>

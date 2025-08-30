@@ -1,7 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
+type Task = {
+  id: string;
+  title: string;
+};
 const initialState = {
-  task: "firsttodo",
+  task: [] as Task[],
 };
 
 const todoSlice = createSlice({
@@ -11,8 +15,14 @@ const todoSlice = createSlice({
     updateTask(state, action) {
       state.task = action.payload;
     },
+    addTask(state, action) {
+      state.task.push({
+        id: nanoid(), // generates a unique ID
+        title: action.payload, // the string from your input
+      });
+    },
   },
 });
 
-export const { updateTask } = todoSlice.actions;
+export const { updateTask, addTask } = todoSlice.actions;
 export default todoSlice.reducer;

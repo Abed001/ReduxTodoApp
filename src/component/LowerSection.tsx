@@ -31,13 +31,20 @@ function LowerSection() {
               key={task.id}
               className={` ${
                 dark
-                  ? " bg-darkelements border-b-1 border-gray-500 text-gray-200"
-                  : "bg-white border-gray-500 border-b-1 text-gray-600"
+                  ? " bg-darkelements border-b-[0.25px] border-gray-700 text-gray-200"
+                  : "bg-white border-gray-300 border-b-[0.25px] text-gray-600"
               }   `}
             >
-              <div className=" py-2 lg:py-3 pl-12  h-[50px] flex flex-row item-center gap-x-4">
+              <div className=" py-2 lg:py-3 pl-5  h-[50px] flex flex-row item-center gap-x-4">
                 {" "}
-                <CheckboxWithIcon /> <p>{task.title}</p>
+                <CheckboxWithIcon task={task} />{" "}
+                <p
+                  className={`${
+                    task.checked ? "line-through text-gray-400" : " "
+                  }`}
+                >
+                  {task.title}
+                </p>
               </div>
             </li>
           ))}

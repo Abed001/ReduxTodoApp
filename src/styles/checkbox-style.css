@@ -6,15 +6,14 @@
   border-radius: 100%;
   width: 24px;
   height: 24px;
-  border: 2px solid #555;
+  border: 1px solid gray;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: white;
 }
 
 .checkbox-icon {
-  width: 16px;
-  height: 16px;
+  width: 10px;
+  height: 10px;
 }

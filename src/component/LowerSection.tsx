@@ -1,10 +1,14 @@
+import { useEffect } from "react";
 import { useTheme } from "../context/useTheme";
 import { useAppSelector } from "../page/hooks";
+import CheckboxWithIcon from "./CheckboxWithIcon";
 
 function LowerSection() {
   const { dark } = useTheme();
   const tasks = useAppSelector((state) => state.todo.task);
-  console.log(tasks);
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
   return (
     <section
       className={`font-semibold customtransition ${
@@ -18,20 +22,23 @@ function LowerSection() {
       >
         <ul
           className={`w-[100%] space-y-[0.5px] ${
-            dark
-              ? " divide-gray-600 text-white"
-              : " text-darkelements divide-gray-800"
-          } divide-y `}
+            dark ? " text-white" : " text-darkelements "
+          }  `}
         >
           {" "}
           {tasks.map((task) => (
             <li
               key={task.id}
-              className={`${
-                dark ? "bg-darkelements" : "bg-white"
-              } py-2 lg:py-3 pl-12 `}
+              className={` ${
+                dark
+                  ? " bg-darkelements border-b-1 border-gray-500 text-gray-200"
+                  : "bg-white border-gray-500 border-b-1 text-gray-600"
+              }   `}
             >
-              {task.title}
+              <div className=" py-2 lg:py-3 pl-12  h-[50px] flex flex-row item-center gap-x-4">
+                {" "}
+                <CheckboxWithIcon /> <p>{task.title}</p>
+              </div>
             </li>
           ))}
         </ul>

@@ -4,8 +4,10 @@ type Task = {
   id: string;
   title: string;
 };
+
+const savedTasks: Task[] = JSON.parse(localStorage.getItem("tasks") || "[]");
 const initialState = {
-  task: [] as Task[],
+  task: savedTasks,
 };
 
 const todoSlice = createSlice({

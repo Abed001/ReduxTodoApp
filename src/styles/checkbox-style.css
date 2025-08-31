@@ -1,0 +1,20 @@
+.custom-checkbox input {
+  display: none;
+}
+
+.checkbox-box {
+  border-radius: 100%;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #555;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: white;
+}
+
+.checkbox-icon {
+  width: 16px;
+  height: 16px;
+}

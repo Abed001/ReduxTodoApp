@@ -29,13 +29,13 @@ function LowerSection() {
           {tasks.map((task) => (
             <li
               key={task.id}
-              className={` ${
+              className={` cursor-pointer ${
                 dark
                   ? " bg-darkelements border-b-[0.25px] border-gray-700 text-gray-200"
                   : "bg-white border-gray-300 border-b-[0.25px] text-gray-600"
               }   `}
             >
-              <div className=" py-2 lg:py-3 pl-5  h-[50px] flex flex-row item-center gap-x-4">
+              <div className=" py-3 lg:py-3 pl-5  h-[50px] flex flex-row item-center gap-x-4">
                 {" "}
                 <CheckboxWithIcon task={task} />{" "}
                 <p

@@ -13,6 +13,12 @@
   cursor: pointer;
 }
 
+.checkbox-box:hover {
+  border-color: #ea09e7;
+  border-width: 1.5px;
+  transition: all 300ms ease-in-out;
+}
+
 .checkbox-icon {
   width: 10px;
   height: 10px;

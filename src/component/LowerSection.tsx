@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useTheme } from "../context/useTheme";
 import { useAppSelector } from "../page/hooks";
-import CheckboxWithIcon from "./CheckboxWithIcon";
+import TaskList from "./TaskList";
 
 function LowerSection() {
   const { dark } = useTheme();
@@ -9,50 +9,22 @@ function LowerSection() {
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
+
   return (
     <section
       className={`font-semibold customtransition ${
         dark ? "bg-darkbackground" : "bg-lightbackground"
       }    relative h-[100vh] w-[100%] `}
     >
-      <div
-        className={`mt-10 ${
-          dark ? "bg-darkelements" : "bg-white"
-        }  min-w-[400px] lg:min-w-[400px] absolute top-[-20%] left-[50%] translate-x-[-50%] h-64 overflow-y-auto no-scrollbar rounded-md  shadow-lg`}
-      >
-        <ul
-          className={`w-[100%] space-y-[0.5px] ${
-            dark ? " text-white" : " text-darkelements "
-          }  `}
+      {tasks.length > 0 && (
+        <div
+          className={`mt-10 ${
+            dark ? "bg-darkelements" : "bg-white"
+          }  min-w-[400px] lg:min-w-[400px] absolute top-[-20%] left-[50%] translate-x-[-50%] h-64 overflow-y-auto no-scrollbar rounded-md  shadow-lg`}
         >
-          {" "}
-          {tasks.map((task) => (
-            <li
-              key={task.id}
-              className={` group cursor-pointer ${
-                dark
-                  ? " bg-darkelements border-b-[0.25px] border-gray-700 text-gray-200"
-                  : "bg-white border-gray-300 border-b-[0.25px] text-gray-600"
-              }   `}
-            >
-              <div className=" py-3 lg:py-3 px-5  h-[50px] flex flex-row item-center gap-x-4">
-                {" "}
-                <CheckboxWithIcon task={task} />{" "}
-                <p
-                  className={`${
-                    task.checked ? "line-through text-gray-400" : " "
-                  }`}
-                >
-                  {task.title}
-                </p>
-                <span className="ml-auto bg-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
-                  ✕
-                </span>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+          {<TaskList />}
+        </div>
+      )}
     </section>
   );
 }

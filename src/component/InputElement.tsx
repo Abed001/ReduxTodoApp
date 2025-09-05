@@ -26,7 +26,7 @@ function InputElement() {
             : "bg-white text-black "
         } `}
         type="text"
-        placeholder="write a task"
+        placeholder="Create a new todo..."
       />
       <span className="flex items-center absolute top-1/2 -translate-y-1/2 left-[5%] ">
         <svg

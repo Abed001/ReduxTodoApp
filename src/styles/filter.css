@@ -1,0 +1,19 @@
+/* styles.css */
+
+body.light .filter p {
+  color: gray;
+  transition: color 500ms;
+}
+
+body.dark .filter p {
+  color: gray;
+  transition: color 500ms;
+}
+
+body.light .filter p:hover {
+  color: black;
+}
+
+body.dark .filter p:hover {
+  color: white;
+}

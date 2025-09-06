@@ -1,4 +1,4 @@
-import { createSlice, nanoid, type PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, nanoid, type PayloadAction } from '@reduxjs/toolkit';
 
 type Task = {
   id: string;
@@ -6,13 +6,16 @@ type Task = {
   checked: boolean;
 };
 
-const savedTasks: Task[] = JSON.parse(localStorage.getItem("tasks") || "[]");
+type FilterType = 'all' | 'active' | 'completed';
+
+const savedTasks: Task[] = JSON.parse(localStorage.getItem('tasks') || '[]');
 const initialState = {
   task: savedTasks,
+  filter: 'all' as FilterType,
 };
 
 const todoSlice = createSlice({
-  name: "todo",
+  name: 'todo',
   initialState,
   reducers: {
     deleteTask(state, action: PayloadAction<string>) {
@@ -31,8 +34,12 @@ const todoSlice = createSlice({
       const task = state.task.find((t) => t.id === action.payload);
       if (task) task.checked = !task.checked;
     },
+
+    setFilter(state, action: PayloadAction<FilterType>) {
+      state.filter = action.payload;
+    },
   },
 });
 
-export const { addTask, toggleChecked, deleteTask } = todoSlice.actions;
+export const { addTask, toggleChecked, deleteTask, setFilter } = todoSlice.actions;
 export default todoSlice.reducer;

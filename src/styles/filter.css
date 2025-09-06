@@ -11,9 +11,11 @@ body.dark .filter p {
 }
 
 body.light .filter p:hover {
+  cursor: pointer;
   color: black;
 }
 
 body.dark .filter p:hover {
+  cursor: pointer;
   color: white;
 }

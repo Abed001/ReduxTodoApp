@@ -27,7 +27,7 @@ function LowerSection() {
             {<TaskList />}
           </div>
         )}
-        <div className="">
+        <div>
           <TaskFilter />
         </div>
       </section>

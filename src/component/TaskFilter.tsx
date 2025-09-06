@@ -1,22 +1,44 @@
-import { useTheme } from "../context/useTheme";
-import "../styles/filter.css";
+import { useTheme } from '../context/useTheme';
+import { useAppDispatch } from '../page/hooks';
+import { setFilter } from '../page/todosSlice';
+import '../styles/filter.css';
 function TaskFilter() {
   const { dark } = useTheme();
+  const dispatch = useAppDispatch();
+
+  const handleFilter = (filter: 'all' | 'active' | 'completed') => {
+    dispatch(setFilter(filter));
+  };
   return (
     <section className="w-full flex justify-center">
       <div
         className={` text-[0.7rem] shadow-lg min-w-[400px] lg:w-[400px]  py-4 rounded-b-lg ${
           dark
-            ? "dark: text-gray-200 bg-darkelements border-t-[0.25px] border-gray-700 placeholder-gray-500"
-            : "bg-white border-gray-300 border-t-[0.25px] text-gray-600 "
+            ? 'dark: text-gray-200 bg-darkelements border-t-[0.25px] border-gray-700 placeholder-gray-500'
+            : 'bg-white border-gray-300 border-t-[0.25px] text-gray-600 '
         } `}
       >
         <div className="filter px-5 flex font-bold justify-around tracking-tight">
-          <p>5 items left</p>
+          <span>5 items left</span>
           <div className="w-[50%] flex justify-center gap-x-4  ">
-            <p>All</p>
-            <p>Active</p>
-            <p>Completed</p>
+            {/* Filter buttons */}
+            <div className="w-[50%] flex justify-center gap-x-4">
+              <p onClick={() => handleFilter('all')} className="cursor-pointer hover:text-blue-500">
+                All
+              </p>
+              <p
+                onClick={() => handleFilter('active')}
+                className="cursor-pointer hover:text-blue-500"
+              >
+                Active
+              </p>
+              <p
+                onClick={() => handleFilter('completed')}
+                className="cursor-pointer hover:text-blue-500"
+              >
+                Completed
+              </p>
+            </div>
           </div>
 
           <p>Clear Completed</p>

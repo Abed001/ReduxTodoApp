@@ -1,14 +1,20 @@
 import { useTheme } from '../context/useTheme';
-import { useAppDispatch } from '../page/hooks';
-import { setFilter } from '../page/todosSlice';
+import { useAppDispatch, useAppSelector } from '../page/hooks';
+import { deleteCheckedTasks, setFilter } from '../page/todosSlice';
 import '../styles/filter.css';
 function TaskFilter() {
   const { dark } = useTheme();
   const dispatch = useAppDispatch();
+  const taskNumber = useAppSelector((state) => state.todo.task);
 
   const handleFilter = (filter: 'all' | 'active' | 'completed') => {
     dispatch(setFilter(filter));
   };
+
+  const handleClear = () => {
+    dispatch(deleteCheckedTasks());
+  };
+
   return (
     <section className="w-full flex justify-center">
       <div
@@ -19,7 +25,7 @@ function TaskFilter() {
         } `}
       >
         <div className="filter px-5 flex font-bold justify-around tracking-tight">
-          <span>5 items left</span>
+          <span>{taskNumber.length} items left</span>
           <div className="w-[50%] flex justify-center gap-x-4  ">
             {/* Filter buttons */}
             <div className="w-[50%] flex justify-center gap-x-4">
@@ -41,7 +47,7 @@ function TaskFilter() {
             </div>
           </div>
 
-          <p>Clear Completed</p>
+          <p onClick={() => handleClear()}>Clear Completed</p>
         </div>
       </div>
     </section>

@@ -21,7 +21,9 @@ const todoSlice = createSlice({
     deleteTask(state, action: PayloadAction<string>) {
       state.task = state.task.filter((task) => task.id !== action.payload);
     },
-
+    deleteCheckedTasks(state) {
+      state.task = state.task.filter((task) => !task.checked);
+    },
     addTask(state, action) {
       state.task.push({
         id: nanoid(), // generates a unique ID
@@ -41,5 +43,6 @@ const todoSlice = createSlice({
   },
 });
 
-export const { addTask, toggleChecked, deleteTask, setFilter } = todoSlice.actions;
+export const { addTask, toggleChecked, deleteTask, setFilter, deleteCheckedTasks } =
+  todoSlice.actions;
 export default todoSlice.reducer;

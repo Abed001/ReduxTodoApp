@@ -1,0 +1,42 @@
+🧠 ThemeProvider Execution Flow
+App starts → ThemeProvider runs
+
+The getInitialTheme() function is called.
+
+It checks localStorage for a saved theme ('dark' or 'light').
+
+If nothing is saved, it falls back to the system preference using prefersDark.
+
+Initial theme is set
+
+The result of getInitialTheme() becomes the initial value of dark state.
+
+Example: if system prefers dark and nothing is saved, dark = true.
+
+useEffect runs immediately after dark is set
+
+It removes any existing light or dark class from <body>.
+
+Then it adds the correct class: dark if dark === true, otherwise light.
+
+This is what activates Tailwind’s dark: styles.
+
+User clicks toggle → toggleDark() runs
+
+It flips the dark state (true becomes false, or vice versa).
+
+It saves the new theme to localStorage as 'dark' or 'light'.
+
+State updates → useEffect runs again
+
+The <body> class is updated to match the new theme.
+
+Tailwind styles switch instantly.
+
+Next time the app loads
+
+localStorage.getItem('theme') returns the saved theme.
+
+getInitialTheme() uses that value.
+
+The UI loads with the correct theme from the start—no flash of wrong color.

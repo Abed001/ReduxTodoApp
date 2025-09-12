@@ -1,18 +1,18 @@
-import InputElement from "../component/InputElement";
-import LowerSection from "../component/LowerSection";
-import ToggleDarkMode from "../component/ToggleDarkMode";
-import UpperSection from "../component/UpperSection";
+import InputElement from '../component/InputElement';
+import LowerSection from '../component/LowerSection';
+import ToggleDarkMode from '../component/ToggleDarkMode';
+import UpperSection from '../component/UpperSection';
 
 function Home() {
   return (
-    <div className={`flex flex-col h-[100vh] w-full`}>
+    <div className={`flex flex-col h-[100vh] w-full `}>
       <section className={`px-10 pb-10 h-[50vh] `}>
         <div className="flex flex-col ">
-          <div className="flex justify-between mx-5 lg:mx-0 lg:justify-center items-center gap-x-40 ">
+          <div className=" flex justify-between mx-5 lg:mx-0 lg:justify-center items-center lg:gap-x-40 ">
             <UpperSection />
             <ToggleDarkMode />
           </div>
-          <div className="flex justify-center">
+          <div className="mt-10 flex justify-center">
             <InputElement />
           </div>
         </div>

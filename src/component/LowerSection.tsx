@@ -19,9 +19,9 @@ function LowerSection() {
         }    h-[100vh] w-[100%] `}
       >
         <div
-          className={` transition-all duration-500 ease-in-out mt-[-2%] ${
+          className={` transition-all duration-500 ease-in-out mt-[-15%] lg:mt-[-2%] ${
             dark ? 'bg-darkelements' : 'bg-white'
-          }  min-w-[400px] lg:max-w-[400px]  h-64 overflow-y-auto no-scrollbar rounded-t-lg shadow-lg
+          }  min-w-[300px] lg:min-w-[400px]  h-64 overflow-y-auto no-scrollbar rounded-t-lg shadow-lg
             ${tasks.length > 0 ? 'opacity-100 max-h-[1000px]' : 'opacity-0 max-h-0'}`}
         >
           {<TaskList />}

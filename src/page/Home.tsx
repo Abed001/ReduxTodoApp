@@ -12,7 +12,7 @@ function Home() {
             <UpperSection />
             <ToggleDarkMode />
           </div>
-          <div className="mt-10 flex justify-center">
+          <div className="mt-10 mb-10 lg:mb-0 flex justify-center">
             <InputElement />
           </div>
         </div>

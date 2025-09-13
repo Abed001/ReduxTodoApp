@@ -15,12 +15,12 @@ function InputElement() {
     }
   };
   return (
-    <div className=" w-full relative mt-0 p-0 max-w-full lg:max-w-[400px] ">
+    <div className="flex justify-center w-full relative mt-0 p-0 max-w-full lg:max-w-[400px] ">
       <input
         onKeyDown={(e) => e.key === 'Enter' && handleAddTask()}
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className={` min-w-full lg:min-w-[400px] p-2 py-4 pl-15 rounded-md ${
+        className={` min-w-[300px] lg:min-w-[400px] p-2 py-4 pl-15 rounded-md ${
           dark ? 'dark:text-white bg-darkelements placeholder-gray-500' : 'bg-white text-black '
         } `}
         type="text"

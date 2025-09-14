@@ -20,7 +20,7 @@ function InputElement() {
         onKeyDown={(e) => e.key === 'Enter' && handleAddTask()}
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className={` min-w-[300px] lg:min-w-[400px] p-2 py-4 pl-15 rounded-md ${
+        className={` min-w-[300px] md:min-w-[500px]  lg:min-w-[400px] p-2 py-4 pl-15 rounded-md ${
           dark ? 'dark:text-white bg-darkelements placeholder-gray-500' : 'bg-white text-black '
         } `}
         type="text"

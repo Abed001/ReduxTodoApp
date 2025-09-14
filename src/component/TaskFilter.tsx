@@ -18,7 +18,7 @@ function TaskFilter() {
   return (
     <section className="w-full flex justify-center">
       <div
-        className={` text-[0.7rem] shadow-lg min-w-[300px] lg:min-w-[400px] py-4 rounded-b-lg ${
+        className={` text-[0.7rem] shadow-lg min-w-[300px] md:min-w-[500px]  lg:min-w-[400px] py-4 rounded-b-lg ${
           dark
             ? 'dark: text-gray-200 bg-darkelements border-t-[0.25px] border-gray-700 placeholder-gray-500'
             : 'bg-white border-gray-300 border-t-[0.25px] text-gray-600 '

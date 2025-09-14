@@ -30,7 +30,7 @@ function SortableTask({ task, onDelete }: SortableTaskProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.3 }}
-      className={` cursor-grab hover:shadow-md transition-all group  ${
+      className={` cursor-grab hover:shadow-lg transition-all group  ${
         dark
           ? ' bg-darkelements border-b-[0.25px] border-gray-700 text-gray-200'
           : 'bg-white border-gray-300 border-b-[0.25px] text-gray-600'
